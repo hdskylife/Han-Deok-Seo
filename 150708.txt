@@ -1,0 +1,92 @@
+
+
+#1
+score=c(90,95,89,71,73,96,87,95,107,89,96,80,97,95,102,97,93,101,82,83,74,91,83,98,95,111,99, 120,93,84)
+
+#a sample mean
+mean(score)
+92.2
+
+#b
+No, because it is a sample data. so we don't know it is equal to parameter.
+
+#c
+se=sd(score)/sqrt(30)
+se
+1.976529
+
+#d
+it is a difference with population mean
+95%of the random samples the interval include the population mean
+
+#e
+92.2-qt(0.975,29)*se
+92.2+qt(0.975,29)*se
+t.test(score)
+
+92.2-qt(0.975,29)*se 88.15754
+92.2+qt(0.975,29)*se 96.24246
+t.test(score)
+	One Sample t-test
+data:  score
+t = 46.647, df = 29, p-value <
+2.2e-16
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 88.15754 96.24246
+sample estimates:
+mean of x 
+     92.2 
+
+#f
+population mean belongs to 88.15754 and 96.24246 section by 95% C.I
+
+
+
+#2
+male=c(220.1,218.6,229.6,228.8,222.0,224.1,226.5)
+female=c(223.4,221.5,230.2,224.3,223.8,230.8)
+#H0: male cholesterol mean= female cholesterol mean
+#H1: not a H0
+t.test(male,female, alternative="two.sided", var.equal=TRUE)
+#t=-0.6268, df=11, p-value is 0.5436, so we can not reject H0, So male and female cholesterol mean is not the same at the significant level 0.05
+#95 percent confidence interval:
+ -6.423378  3.575759
+
+
+
+#3
+#a False , it has a effect, but we do not know it is small or big.
+#b True
+#c False, type 1 error is fixed at 0.05
+#d True
+#e True
+
+
+
+#4
+
+#H0: 1.5 times the personA's median=personB's median
+#H1: not a H0
+personA =c(248,236,269,254,249,251,260,245,239,255)
+personAA=1.5*personA
+personB =c(380,391,377,392,398,374)
+wilcox.test(personAA, personB , alternative="two.sided")
+#W=16, p-value is 0.1471 , so we can not reject H0, so personB are not 1.5 times the volume of person A  
+
+
+
+#5
+
+#standard error of mean is when we do not know the population parameter, we estimate standard error and use this instead of standard deviation.
+#In contrast, we know the population parameter, we can calculate standard deviation.
+#If, population data is 
+p=c(1,2,3,4,5,6,7,8,9,10)
+#and random sample is
+r=c(2.4,7,8,10)
+#then, standard deviation is 
+sd(p)
+#=3.02765
+#and, standard error is
+sd(r)/sqrt(5)
+#=1.439213  
